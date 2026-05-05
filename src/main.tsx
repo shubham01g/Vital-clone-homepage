@@ -32,7 +32,7 @@ document.querySelector('#app').innerHTML = `
 <!-- ===== HERO SECTION ===== -->
 <section class="hero" id="hero">
   <div class="hero-video-bg">
-    <video src="/hero-video-updated.mp4" autoplay muted loop playsinline preload="auto" disablePictureInPicture></video>
+    <video src="/hero-video-updated.mp4" autoplay muted loop playsinline preload="auto" fetchpriority="high" disablePictureInPicture></video>
   </div>
   <div class="hero-video-overlay"></div>
   <div class="container hero-content">
@@ -124,8 +124,7 @@ document.querySelector('#app').innerHTML = `
   <div class="container">
     <div class="showcase-content reveal">
       <div class="showcase-visual">
-        <!-- Replace with your video: <video src="your-showcase.mp4" autoplay muted loop playsinline></video> -->
-        <video src="/showcase-video.mp4" autoplay muted loop playsinline preload="auto"></video>
+        <video class="lazy-video" data-src="/showcase-video.mp4" muted loop playsinline preload="none"></video>
       </div>
       <div class="showcase-text">
         <div class="section-label"><span class="line"></span> See It In Action</div>
@@ -271,7 +270,7 @@ document.querySelector('#app').innerHTML = `
         </div>
       </div>
       <div class="showcase-visual">
-        <video src="/affiliate-video.mp4" autoplay muted loop playsinline preload="auto"></video>
+        <video class="lazy-video" data-src="/affiliate-video.mp4" muted loop playsinline preload="none"></video>
       </div>
     </div>
   </div>
@@ -281,7 +280,7 @@ document.querySelector('#app').innerHTML = `
   <div class="container">
     <div class="showcase-content reveal">
       <div class="showcase-visual">
-        <video src="/partnership-video.mp4" autoplay muted loop playsinline preload="auto"></video>
+        <video class="lazy-video" data-src="/partnership-video.mp4" muted loop playsinline preload="none"></video>
       </div>
       <div class="showcase-text">
         <div class="section-label"><span class="line"></span> Partnership</div>
@@ -408,6 +407,28 @@ const heroVideo = document.querySelector('.hero-video-bg video')
 if (heroVideo) {
   heroVideo.play().catch(() => {})
 }
+
+// ===== LAZY LOAD VIDEOS =====
+const lazyVideos = document.querySelectorAll('.lazy-video')
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const video = entry.target;
+      if (video.dataset.src) {
+        video.src = video.dataset.src;
+        video.removeAttribute('data-src');
+        video.load();
+        video.play().catch(() => {});
+      } else {
+        video.play().catch(() => {});
+      }
+    } else {
+      entry.target.pause();
+    }
+  })
+}, { rootMargin: '200px 0px', threshold: 0.1 })
+
+lazyVideos.forEach(video => videoObserver.observe(video))
 
 // Inject React component into features section
 const featuresGrid = document.querySelector('.features-grid')
