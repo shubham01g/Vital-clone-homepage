@@ -129,7 +129,7 @@ document.querySelector('#app').innerHTML = `
         <p class="section-subtitle">Experience the profound emotional connection of preserving memories that transcend time. Watch how a digital legacy is carefully crafted to bring peace of mind to generations.</p>
       </div>
       <div class="showcase-visual">
-        <video class="lazy-video" data-src="/hero-video-updated.mp4" muted loop playsinline preload="none"></video>
+        <video class="lazy-video" data-src="/Asian_couple_in_living_room_202605061139.mp4" muted loop playsinline preload="none"></video>
       </div>
     </div>
   </div>
@@ -140,7 +140,7 @@ document.querySelector('#app').innerHTML = `
   <div class="container">
     <div class="showcase-content reveal">
       <div class="showcase-visual">
-        <video class="lazy-video" data-src="/showcase-video.mp4" muted loop playsinline preload="none"></video>
+        <video class="lazy-video" data-src="/Family_reading_book_in_living_202605061124.mp4" muted loop playsinline preload="none"></video>
       </div>
       <div class="showcase-text">
         <div class="section-label"><span class="line"></span> See It In Action</div>
