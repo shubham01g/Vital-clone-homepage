@@ -32,7 +32,7 @@ document.querySelector('#app').innerHTML = `
 <!-- ===== HERO SECTION ===== -->
 <section class="hero" id="hero">
   <div class="hero-video-bg">
-    <video src="/hero-video-updated.mp4" autoplay muted loop playsinline preload="auto" fetchpriority="high" disablePictureInPicture></video>
+    <video src="/new-hero-video.mp4" autoplay muted loop playsinline preload="auto" fetchpriority="high" disablePictureInPicture></video>
   </div>
   <div class="hero-video-overlay"></div>
   <div class="container hero-content">
@@ -114,6 +114,22 @@ document.querySelector('#app').innerHTML = `
         <div class="step-number">3</div>
         <h3>Interact & Preserve</h3>
         <p>Your digital twin is ready. Family members can now have natural, spoken conversations with your persona at any time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISION SECTION ===== -->
+<section class="section vision" id="vision" style="background: var(--bg-secondary);">
+  <div class="container">
+    <div class="showcase-content reveal">
+      <div class="showcase-text">
+        <div class="section-label"><span class="line"></span> The Vision</div>
+        <h2 class="section-title">A glimpse into<br/>eternity</h2>
+        <p class="section-subtitle">Experience the profound emotional connection of preserving memories that transcend time. Watch how a digital legacy is carefully crafted to bring peace of mind to generations.</p>
+      </div>
+      <div class="showcase-visual">
+        <video class="lazy-video" data-src="/hero-video-updated.mp4" muted loop playsinline preload="none"></video>
       </div>
     </div>
   </div>
