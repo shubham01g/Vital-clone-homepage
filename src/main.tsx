@@ -129,7 +129,7 @@ document.querySelector('#app').innerHTML = `
         <p class="section-subtitle">Experience the profound emotional connection of preserving memories that transcend time. Watch how a digital legacy is carefully crafted to bring peace of mind to generations.</p>
       </div>
       <div class="showcase-visual">
-        <video class="lazy-video" data-src="/Asian_couple_in_living_room_202605061139.mp4" muted loop playsinline preload="none"></video>
+        <video class="lazy-video" src="/Asian_couple_in_living_room_202605061139.mp4" autoplay muted loop playsinline preload="auto"></video>
       </div>
     </div>
   </div>
@@ -140,7 +140,7 @@ document.querySelector('#app').innerHTML = `
   <div class="container">
     <div class="showcase-content reveal">
       <div class="showcase-visual">
-        <video class="lazy-video" data-src="/Family_reading_book_in_living_202605061124.mp4" muted loop playsinline preload="none"></video>
+        <video class="lazy-video" src="/Family_reading_book_in_living_202605061124.mp4" autoplay muted loop playsinline preload="auto"></video>
       </div>
       <div class="showcase-text">
         <div class="section-label"><span class="line"></span> See It In Action</div>
@@ -286,7 +286,7 @@ document.querySelector('#app').innerHTML = `
         </div>
       </div>
       <div class="showcase-visual">
-        <video class="lazy-video" data-src="/affiliate-video.mp4" muted loop playsinline preload="none"></video>
+        <video class="lazy-video" src="/affiliate-video.mp4" autoplay muted loop playsinline preload="auto"></video>
       </div>
     </div>
   </div>
@@ -296,7 +296,7 @@ document.querySelector('#app').innerHTML = `
   <div class="container">
     <div class="showcase-content reveal">
       <div class="showcase-visual">
-        <video class="lazy-video" data-src="/partnership-video.mp4" muted loop playsinline preload="none"></video>
+        <video class="lazy-video" src="/partnership-video.mp4" autoplay muted loop playsinline preload="auto"></video>
       </div>
       <div class="showcase-text">
         <div class="section-label"><span class="line"></span> Partnership</div>
@@ -425,27 +425,7 @@ if (heroVideo) {
 }
 
 // ===== LAZY LOAD VIDEOS =====
-const lazyVideos = document.querySelectorAll('.lazy-video')
-const videoObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const video = entry.target;
-      if (video.dataset.src) {
-        video.src = video.dataset.src;
-        video.removeAttribute('data-src');
-        video.load();
-        video.play().catch(() => {});
-      } else {
-        video.play().catch(() => {});
-      }
-    } else {
-      entry.target.pause();
-    }
-  })
-}, { rootMargin: '200px 0px', threshold: 0.1 })
-
-lazyVideos.forEach(video => videoObserver.observe(video))
-
+// Removed lazy loading logic to ensure all videos load instantly on page visit.
 // Inject React component into features section
 const featuresGrid = document.querySelector('.features-grid')
 if (featuresGrid) {
